@@ -310,10 +310,10 @@
 </footer>
 </div>
 </div>
-<!-- Calendário de Lançamentos, Eventos e Promoções -->
+<!-- Calendário, Eventos e Promoções -->
 <div class="calendar-container">
     <div class="calendar-item">
-        <h3>Calendário de Lançamentos</h3>
+        <h3>Calendário JT GAMES</h3>
         <ul>
             <li>25/03/2025 - The World Its Challengers</li>
             <li>20/12/2025 - Play Store Release</li>
@@ -330,10 +330,261 @@
         <h3>Promoções</h3>
         <ul>
             <li>Desconto de 20% - 25/03/2025 a 15/04/2025</li>
-            <li>Oferta Exclusiva de Pré-venda apenas para usuários com 1k de xp- 24/03/2025</li>
         </ul>
     </div>
 </div>
+<div class="patch-notes">
+  <h3 class="update-title" onclick="toggleUpdates()">Atualizações e Progresso - 25/01/2025 <span class="arrow">▼</span></h3>
+  <div id="updates" class="update-list">
+    <ul>
+      <li onclick="toggleDetail(this)">🆕 Implementação do primeiro boss com a primeira fase de combate.
+        <div class="update-details">Detalhes: A primeira fase do combate do boss envolve ataques físicos e mágicos que desafiam o jogador a usar táticas rápidas para sobreviver.</div>
+      </li>
+      <li onclick="toggleDetail(this)">❤️ Definição do sistema de vida do personagem para 3 pontos.
+        <div class="update-details">Detalhes: O sistema de vida do personagem foi ajustado para permitir até 3 pontos de vida, afetando a mecânica de sobrevivência no jogo.</div>
+      </li>
+      <li onclick="toggleDetail(this)">🔊 Adição de efeitos sonoros ao jogo.
+        <div class="update-details">Detalhes: Foram adicionados efeitos sonoros de ambiente, ataques e interações que melhoram a imersão do jogo.</div>
+      </li>
+      <li onclick="toggleDetail(this)">📅 Calendário de atualizações finalizado até a versão 2.0.
+        <div class="update-details">Detalhes: O cronograma de atualizações agora inclui todas as versões planejadas até a versão 2.0, com datas específicas para cada lançamento.</div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<style>
+  .patch-notes {
+    background-color: #1e1e1e;
+    color: #f4f4f9;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .update-title {
+    font-size: 1.8em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .update-title .arrow {
+    font-size: 1.2em;
+    transition: transform 0.3s;
+  }
+
+  .update-list {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .update-list li {
+    background-color: #333333;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 1.1em;
+    cursor: pointer;
+  }
+
+  .update-list li:hover {
+    background-color: #555555;
+    transform: scale(1.02);
+    transition: all 0.2s ease-in-out;
+  }
+
+  .update-list li .update-details {
+    display: none;
+    background-color: #444444;
+    color: #bbb;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+
+  .update-title.active .arrow {
+    transform: rotate(180deg);
+  }
+</style>
+
+<script>
+  function toggleUpdates() {
+    const updates = document.getElementById('updates');
+    updates.style.display = (updates.style.display === 'block' ? 'none' : 'block');
+  }
+
+  function toggleDetail(item) {
+    const details = item.querySelector('.update-details');
+    if (details) {
+      details.style.display = (details.style.display === 'block' ? 'none' : 'block');
+    }
+  }
+</script>
+<script>
+  function toggleUpdates() {
+    var updates = document.getElementById("updates");
+    var arrow = document.querySelector(".arrow");
+    if (updates.style.display === "none" || updates.style.display === "") {
+      updates.style.display = "block";
+      arrow.parentElement.classList.add("active");
+    } else {
+      updates.style.display = "none";
+      arrow.parentElement.classList.remove("active");
+    }
+  }
+</script>
+<section id="calendario">
+  <h2>Calendário de Atualizações</h2>
+  <p>Estamos avançando para a versão 1.5, mas como nem todas as animações estarão completas, será realizada uma mini atualização 1.5.1 para implementar essas animações. As datas a seguir são estimativas e podem sofrer alterações:</p>
+  <ul class="calendario-lista">
+    <li class="update-item">
+      <div class="update-header" onclick="toggleDetails(this)">
+        <strong>Versão 1.5 - 25/03/2025</strong>
+        <span class="seta">▼</span>
+      </div>
+      <div class="update-details">
+        Atualização principal com novos recursos e ajustes de balanceamento.
+      </div>
+    </li>
+    <li class="update-item">
+      <div class="update-header" onclick="toggleDetails(this)">
+        <strong>Versão 1.5.1 - 10/04/2025</strong>
+        <span class="seta">▼</span>
+      </div>
+      <div class="update-details">
+        Implementação das animações pendentes.
+      </div>
+    </li>
+    <li class="update-item">
+      <div class="update-header" onclick="toggleDetails(this)">
+        <strong>Versão 1.6 - 15/05/2025</strong>
+        <span class="seta">▼</span>
+      </div>
+      <div class="update-details">
+        Novos conteúdos e melhorias significativas no gameplay.
+      </div>
+    </li>
+    <li class="update-item">
+      <div class="update-header" onclick="toggleDetails(this)">
+        <strong>Versão 1.7 - 10/06/2025</strong>
+        <span class="seta">▼</span>
+      </div>
+      <div class="update-details">
+        Atualizações de performance e ajustes de dificuldade.
+      </div>
+    </li>
+    <li class="update-item">
+      <div class="update-header" onclick="toggleDetails(this)">
+        <strong>Versão 1.8 - 20/07/2025</strong>
+        <span class="seta">▼</span>
+      </div>
+      <div class="update-details">
+        Expansão de conteúdo com novos personagens e missões.
+      </div>
+    </li>
+    <li class="update-item">
+      <div class="update-header" onclick="toggleDetails(this)">
+        <strong>Versão 1.9 - 15/09/2025</strong>
+        <span class="seta">▼</span>
+      </div>
+      <div class="update-details">
+        Rebalanceamento e otimização do sistema de combate.
+      </div>
+    </li>
+    <li class="update-item">
+      <div class="update-header" onclick="toggleDetails(this)">
+        <strong>Versão 2.0 - 30/10/2025</strong>
+        <span class="seta">▼</span>
+      </div>
+      <div class="update-details">
+        Grande atualização com novas mecânicas e ambientes.
+      </div>
+    </li>
+  </ul>
+  <p><strong>Nota:</strong> O cronograma pode sofrer alterações dependendo da evolução do desenvolvimento. Mais informações serão divulgadas em breve.</p>
+</section>
+
+<style>
+  #calendario {
+    background-color: #121212;  /* Cor de fundo do site, ajustada para um tom bem escuro */
+    color: #ffffff;  /* Texto branco */
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    text-align: center;
+    color: #ffffff;  /* Cor branca para o título */
+}
+
+.calendario-lista {
+    list-style-type: none;
+    padding: 0;
+}
+
+.update-item {
+    background-color: #181818;  /* Fundo um pouco mais claro para os itens do calendário */
+    margin: 10px 0;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: background-color 0.3s;
+}
+
+.update-item:hover {
+    background-color: #222222;  /* Efeito de hover mais suave */
+}
+
+.update-header {
+    padding: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;  /* Cor do texto do cabeçalho em branco */
+    font-weight: bold;
+}
+
+.update-details {
+    padding: 10px 15px;
+    background-color: #222222;  /* Fundo para os detalhes com um tom mais escuro */
+    color: #ffffff;  /* Texto branco nos detalhes */
+    display: none;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.seta {
+    font-size: 18px;
+    transition: transform 0.3s;
+}
+
+.update-item.open .update-details {
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.update-item.open .seta {
+    transform: rotate(180deg);
+}
+</style>
+
+<script>
+  function toggleDetails(element) {
+    const item = element.closest('.update-item');
+    item.classList.toggle('open');
+  }
+</script>
 
 <!-- Perfil de Usuário -->
 <div id="profile-section" class="profile-container" style="display: none;">
@@ -341,14 +592,12 @@
         <h2>Perfil de Usuário</h2>
         <p>Nome de Usuário: <span id="profile-username"></span></p>
         <p>Data de Registro: indisponível</p>
-        <p>Pontos de Recompensa: 500</p>
         <button id="logout-btn">Sair</button> <!-- Botão de logout -->
     </div>
 </div>
-
-<script>
+ <script>
     // Exibir os dados do perfil, como nome de usuário (exemplo)
-    document.getElementById('profile-username').textContent = 'Nome do Usuário'; // Substitua com o nome real
+    document.getElementById('profile-username').textContent = 'Nome do Usuário'; // Substitua com o nome realt>
 
     // Adicionar evento de clique para o botão de logout
     document.getElementById('logout-btn').addEventListener('click', function() {
@@ -515,8 +764,8 @@
     <div class="notification-content">
       <span class="close-btn" id="close-btn">&times;</span>
       <h4>Nova Atualização Disponível!</h4>
-      <p>Confira as Novidades da Atualização do TWC!</p>
-      <a href="#" class="btn">Saiba Mais</a>
+      <p>Confira as Novidades da Atualização do TWC!</
+      p>
     </div>
   </div>
 
