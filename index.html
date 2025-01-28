@@ -335,17 +335,17 @@
     </div>
 </div>
 <div class="patch-notes">
-  <h3 class="update-title" onclick="toggleUpdates()">Atualizações e Progresso - 26/01/2025 <span class="arrow">▼</span></h3>
+  <h3 class="update-title" onclick="toggleUpdates()">Atualizações e Progresso - 28/01/2025 <span class="arrow">▼</span></h3>
   <div id="updates" class="update-list">
     <ul>
-      <li onclick="toggleDetail(this)">🔥 Primeiro Boss finalizado
-        <div class="update-details"> O primeiro Boss do TWC finalmente foi finalizado, com todas as suas fases e habilidades únicas, mais informações em breve.</div>
+      <li onclick="toggleDetail(this)">🤖 Melhorias no site
+        <div class="update-details">Hoje, fizemos algumas melhorias importantes no site da JT Games. Adicionamos um botão pop-up que permite visualizar os criadores das músicas utilizadas nos nossos jogos. Além disso, ajustamos a posição do botão para melhorar a usabilidade e implementamos um sistema que exibe os créditos musicais de forma mais dinâmica, tornando a experiência do usuário mais intuitiva e informativa. </div>
       </li>
-      <li onclick="toggleDetail(this)">🎵Adição de novas Músicas 
-        <div class="update-details">As Músicas para cada situação do jogo finalmente foram adicionadas ao jogo, no total são 5 músicas. Mais detalhes em breve</div>
+      <li onclick="toggleDetail(this)">⚠️ Testes e Ajustes
+        <div class="update-details">Durante os testes, realizamos uma revisão no código e corrigimos alguns problemas de exibição. Embora tenha surgido um aviso relacionado aos links no código, o sistema segue funcionando normalmente, sem nenhum impacto no desempenho.</div>
       </li>
-      <li onclick="toggleDetail(this)">ℹ️ Sistema de save automático.
-        <div class="update-details"> O sistema de save já estava presente no TWC de um jeito diferente, antes para salvar você precisava clicar no botão SAVE no canto superior da tela, Agora o jogo salva automaticamente com o tempo padrão de 5 minutos, o tempo pode ser alterado nas opções"</div>
+      <li onclick="toggleDetail(this)">🎮🌐Testes Multiplayer de TWC 
+        <div class="update-details"> Realizamos também os primeiros testes no servidor multiplayer de The World Its Challengers (TWC). O objetivo foi verificar a estabilidade e o desempenho em diferentes condições de conexão. Durante os testes, conseguimos identificar áreas que precisam de ajustes, especialmente em relação à sincronização entre jogadores em tempo real. Apesar de alguns pequenos atrasos na comunicação entre os servidores, o sistema se comportou de forma satisfatória. A próxima etapa será focar na otimização da conexão e na melhoria da experiência do jogador, garantindo que o multiplayer seja estável e fluido para todos.</div>
       </li>
       <li onclick="toggleDetail(this)">📆 Informações sobre a versão 1.5.1 disponível no calendário de versões.</div>
       </li>
@@ -1088,3 +1088,143 @@ h2 {
         });
     }
 </script>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Músicas do Jogo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212; /* Fundo escuro */
+            color: white;
+        }
+
+        /* Estilos do botão */
+        #showMusic {
+            position: fixed;
+            bottom: 100px; /* Ajustado para ficar mais acima */
+            right: 20px;
+            background-color: #007BFF;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Estilos do pop-up */
+        #musicPopup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #222; /* Cinza escuro para combinar com temas modernos */
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            z-index: 1000;
+            width: 320px;
+            text-align: center;
+            color: white;
+        }
+
+        #musicPopup img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .channel a {
+            display: block;
+            margin-top: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            color: #00A6FF;
+        }
+
+        #closePopup {
+            margin-top: 15px;
+            background-color: red;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        /* Fundo escuro transparente quando o pop-up aparece */
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Suavizado */
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Botão para abrir o pop-up -->
+    <button id="showMusic">🎵Créditos</button>
+
+    <!-- Pop-up das músicas -->
+    <div id="overlay"></div>
+    <div id="musicPopup">
+        <h2>Músicas Utilizadas</h2>
+
+        <div class="channel">
+            <img src="https://38e3604380.cbaul-cdnwnd.com/88f205c201c2aeb4b3818ce32d3535ad/200000049-1ccde1ccdf/450/1000149345.png" alt="ZARKØS">
+            <p>ZARKØS</p>
+            <a href="https://youtube.com/@zarks5694?si=Hya-8gDZjE8bi9q9" target="_blank">Ver no YouTube</a>
+        </div>
+
+        <div class="channel">
+            <img src="https://38e3604380.cbaul-cdnwnd.com/88f205c201c2aeb4b3818ce32d3535ad/200000050-2bb1d2bb1f/450/1000149346.png" alt="Panda Beats - No Copyright Music">
+            <p>Panda Beats</p>
+            <a href="https://youtube.com/@pandabeatsmusic?si=wS8fnIkWTbDP8BJk" target="_blank">Ver no YouTube</a>
+        </div>
+
+        <button id="closePopup">Fechar</button>
+    </div>
+
+    <script>
+        const showMusicButton = document.getElementById("showMusic");
+        const musicPopup = document.getElementById("musicPopup");
+        const overlay = document.getElementById("overlay");
+        const closePopup = document.getElementById("closePopup");
+
+        // Abre o pop-up ao clicar no botão
+        showMusicButton.addEventListener("click", function () {
+            musicPopup.style.display = "block";
+            overlay.style.display = "block";
+        });
+
+        // Fecha o pop-up ao clicar no botão de fechar
+        closePopup.addEventListener("click", function () {
+            musicPopup.style.display = "none";
+            overlay.style.display = "none";
+        });
+
+        // Fecha ao clicar fora do pop-up
+        overlay.addEventListener("click", function () {
+            musicPopup.style.display = "none";
+            overlay.style.display = "none";
+        });
+    </script>
+
+</body>
+</html>
