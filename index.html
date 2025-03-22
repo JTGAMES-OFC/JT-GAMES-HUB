@@ -7,7 +7,106 @@
     <title>JT Games Hub</title>
     
             </div>
-        </div>
+        </div>    
+<title>Contador de Lançamento</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #121212;
+        color: white;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Estilo do popup */
+    #countdown-popup {
+        position: fixed;
+        top: 150px; /* Agora está 150px abaixo do topo */
+        right: 20px;
+        background: linear-gradient(135deg, #1e1e1e, #292929);
+        padding: 20px 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        font-size: 1.1em;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        z-index: 1000;
+        border: 2px solid #ff4500;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    #countdown-popup.hide {
+        opacity: 0;
+        transform: translateY(-20px);
+        pointer-events: none;
+    }
+
+    /* Estilização do contador */
+    #countdown {
+        font-weight: bold;
+        color: #ffae00;
+        font-size: 1.3em;
+    }
+
+    /* Botão de fechar */
+    #close-popup-btn {
+        background: none;
+        color: white;
+        border: none;
+        font-size: 1.2em;
+        cursor: pointer;
+        padding: 5px 10px;
+        transition: color 0.3s ease;
+    }
+
+    #close-popup-btn:hover {
+        color: #ff4500;
+    }
+</style>
+</head>
+<body>
+
+    <!-- Popup do contador -->
+    <div id="countdown-popup">
+        <span id="countdown">Carregando...</span>
+        <button id="close-popup-btn">✖</button>
+    </div>
+
+    <script>
+        function updateCountdown() {
+            const launchDate = new Date(Date.UTC(2025, 6, 25, 20, 0, 0)); // Julho é mês 6 (zero-based)
+            const now = new Date();
+            const difference = launchDate - now;
+
+            if (difference <= 0) {
+                document.getElementById("countdown").innerHTML = "O jogo foi lançado!";
+                clearInterval(interval); // Para o contador quando a data for atingida
+                return;
+            }
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = 
+                `Lançamento em: <br>${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        // Função para fechar o popup ao clicar no botão "X"
+        document.getElementById("close-popup-btn").addEventListener("click", function(event) {
+            event.stopPropagation(); // Evita qualquer outro evento de clique
+            document.getElementById("countdown-popup").classList.add("hide");
+        });
+
+        // Inicia e atualiza o contador a cada segundo
+        updateCountdown();
+        const interval = setInterval(updateCountdown, 1000);
+    </script>
+
+</body>
+</html>
     </div>
     <style>
         body {
@@ -303,13 +402,13 @@
         <img src="https://38e3604380.cbaul-cdnwnd.com/88f205c201c2aeb4b3818ce32d3535ad/200000042-aa7a0aa7a4/450/1000135309.jpeg" alt="The World Its Challengers">
         <div class="game-card-content">
             <h2>The World Its Challengers</h2>
-            <p>Jogue a Beta gratuita de The World Its Challengers e experimente uma prévia do jogo! O conteúdo completo estará disponível como versão paga a partir de 25 de março de 2025.
+            <p>Jogue a Beta gratuita de The World Its Challengers e experimente uma prévia do jogo! O conteúdo completo estará disponível como versão paga a partir de 25 de Julho de 2025.
             </p>
             </p>
 <button class="download-btn" onclick="window.location.href='https://www.mediafire.com/file/29o82i5k5tcs0sm/TWC_Beta.apk/file'">Baixar Agora a versão Beta</button>
 </div>
 <footer>
-    <p>Lançamento Oficial em 25 de março de 2025</p>
+    <p>Lançamento Oficial em 25 de Julho de 2025</p>
 </footer>
 </div>
 </div>
@@ -318,21 +417,21 @@
     <div class="calendar-item">
         <h3>Calendário JT GAMES</h3>
         <ul>
-            <li>25/03/2025 - The World Its Challengers</li>
+            <li>25/07/2025 - The World Its Challengers</li>
             <li>07/01/2026 - Play Store Release</li>
         </ul>
     </div>
     <div class="calendar-item">
         <h3>Eventos</h3>
         <ul>
-            <li>Evento de Lançamento: 25/03/2025</li>
+            <li>Evento de Lançamento: 25/07/2025</li>
             <li>Competição Online: 07/10/2025</li>
         </ul>
     </div>
     <div class="calendar-item">
         <h3>Promoções</h3>
         <ul>
-            <li>Desconto de 20% - 25/03/2025 a 15/04/2025</li>
+            <li>Desconto de 20% - 25/07/2025 a 15/08/2025</li>
         </ul>
     </div>
 </div>
@@ -362,7 +461,7 @@ Equipe JT Games
         <div class="update-details"> Temos novidades empolgantes sobre o futuro de The World Its Challengers! A partir da atualização 1.6, cada nova versão do jogo receberá um nome temático que representa seu principal conteúdo.
 Com isso, cada atualização trará não apenas melhorias e correções, mas também um foco especial que enriquecerá a experiência dos jogadores.</div>
       </li>
-      <li onclick="toggleDetail(this)">📆 Mudanças no calendário de atualizações!</div>
+      <li onclick="toggleDetail(this)">📆 Em breve o novo Calendário </div>
       </li>
     </ul>
   </div>
@@ -1525,102 +1624,4 @@ h2 {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contador de Lançamento</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #121212;
-            color: white;
-            margin: 0;
-            padding: 0;
-        }
 
-        /* Estilo do popup */
-        #countdown-popup {
-            position: fixed;
-            top: 150px; /* Agora está 150px abaixo do topo */
-            right: 20px;
-            background: linear-gradient(135deg, #1e1e1e, #292929);
-            padding: 20px 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            font-size: 1.1em;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            z-index: 1000;
-            border: 2px solid #ff4500;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-
-        #countdown-popup.hide {
-            opacity: 0;
-            transform: translateY(-20px);
-            pointer-events: none;
-        }
-
-        /* Estilização do contador */
-        #countdown {
-            font-weight: bold;
-            color: #ffae00;
-            font-size: 1.3em;
-        }
-
-        /* Botão de fechar */
-        #close-popup-btn {
-            background: none;
-            color: white;
-            border: none;
-            font-size: 1.2em;
-            cursor: pointer;
-            padding: 5px 10px;
-            transition: color 0.3s ease;
-        }
-
-        #close-popup-btn:hover {
-            color: #ff4500;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Popup do contador -->
-    <div id="countdown-popup">
-        <span id="countdown">Carregando...</span>
-        <button id="close-popup-btn">✖</button>
-    </div>
-
-    <script>
-        function updateCountdown() {
-            const launchDate = new Date(Date.UTC(2025, 2, 25, 9, 0, 0)); // Março é mês 2 (zero-based)
-            const now = new Date();
-            const difference = launchDate - now;
-
-            if (difference <= 0) {
-                document.getElementById("countdown").innerHTML = "O jogo foi lançado!";
-                clearInterval(interval); // Para o contador quando a data for atingida
-                return;
-            }
-
-            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-            document.getElementById("countdown").innerHTML = 
-                `Lançamento em: <br>${days}d ${hours}h ${minutes}m ${seconds}s`;
-        }
-
-        // Função correta para fechar o popup ao clicar no botão "X"
-        document.getElementById("close-popup-btn").addEventListener("click", function(event) {
-            event.stopPropagation(); // Evita qualquer outro evento de clique
-            document.getElementById("countdown-popup").classList.add("hide");
-        });
-
-        // Inicia e atualiza o contador a cada segundo
-        updateCountdown();
-        const interval = setInterval(updateCountdown, 1000);
-    </script>
-
-</body>
-</html>
