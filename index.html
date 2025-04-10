@@ -67,44 +67,6 @@
 </head>
 <body>
 
-    <!-- Popup do contador -->
-    <div id="countdown-popup">
-        <span id="countdown">Carregando...</span>
-        <button id="close-popup-btn">✖</button>
-    </div>
-
-    <script>
-        function updateCountdown() {
-            const launchDate = new Date(Date.UTC(2025, 6, 25, 20, 0, 0)); // Julho é mês 6 (zero-based)
-            const now = new Date();
-            const difference = launchDate - now;
-
-            if (difference <= 0) {
-                document.getElementById("countdown").innerHTML = "O jogo foi lançado!";
-                clearInterval(interval); // Para o contador quando a data for atingida
-                return;
-            }
-
-            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-            document.getElementById("countdown").innerHTML = 
-                `Lançamento em: <br>${days}d ${hours}h ${minutes}m ${seconds}s`;
-        }
-
-        // Função para fechar o popup ao clicar no botão "X"
-        document.getElementById("close-popup-btn").addEventListener("click", function(event) {
-            event.stopPropagation(); // Evita qualquer outro evento de clique
-            document.getElementById("countdown-popup").classList.add("hide");
-        });
-
-        // Inicia e atualiza o contador a cada segundo
-        updateCountdown();
-        const interval = setInterval(updateCountdown, 1000);
-    </script>
-
 </body>
 </html>
     </div>
@@ -397,7 +359,7 @@
 </div>
 
 <!-- Seção de Jogos (inicialmente oculta) -->
-<div id="games-section" class="games-container" style="display: none;">
+<div id="games-section" class="games-container" style="display: none;">    
     <div class="game-card">
         <img src="https://38e3604380.cbaul-cdnwnd.com/88f205c201c2aeb4b3818ce32d3535ad/200000042-aa7a0aa7a4/450/1000135309.jpeg" alt="The World Its Challengers">
         <div class="game-card-content">
@@ -408,17 +370,33 @@
 <button class="download-btn" onclick="window.location.href='https://www.mediafire.com/file/29o82i5k5tcs0sm/TWC_Beta.apk/file'">Baixar Agora a versão Beta</button>
 </div>
 <footer>
+   
     <p>Lançamento Oficial em 25 de Julho de 2025</p>
 </footer>
 </div>
 </div>
+    <!-- Novo card editável -->
+    <div class="game-card">
+        <img src="https://38e3604380.cbaul-cdnwnd.com/88f205c201c2aeb4b3818ce32d3535ad/200000054-5ea985ea9a/450/1000201157.png" alt="JT CLOUD X">
+        <div class="game-card-content">
+            <h2>JT Cloud X</h2>
+            <p>Explore o futuro dos jogos com o JT Cloud X! Jogue diretamente da nuvem, sem downloads, onde e quando quiser.</p>
+            <button class="download-btn" onclick="window.location.href='https://jtgames-ofc.github.io/JT-CLOUD-X/'">Site Oficial</button>
+        </div>
+        <footer>
+            <p>Data de Lançamento: Julho de 2025</p>
+        </footer>
+    </div>
+</div>
+
 <!-- Calendário, Eventos e Promoções -->
 <div class="calendar-container">
     <div class="calendar-item">
         <h3>Calendário JT GAMES</h3>
         <ul>
             <li>25/07/2025 - The World Its Challengers</li>
-            <li>07/01/2026 - Play Store Release</li>
+           <li>--/07/2025 - The World Its Challengers</li>
+            <li>17/02/2026 - Play Store Release</li>
         </ul>
     </div>
     <div class="calendar-item">
@@ -436,21 +414,20 @@
     </div>
 </div>
 <div class="patch-notes">
-  <h3 class="update-title" onclick="toggleUpdates()">Atualizações e Progresso - 05/03/2025 <span class="arrow">▼</span></h3>
+  <h3 class="update-title" onclick="toggleUpdates()">Atualizações e Progresso - 09/04/2025 <span class="arrow">▼</span></h3>
   <div id="updates" class="update-list">
     <ul>
-      <li onclick="toggleDetail(this)"> Nota Oficial – Mudança na Data de Lançamento de The World Its Challengers
+      <li onclick="toggleDetail(this)">ℹ️ JT CLOUD X! O jeito simples de jogar jogos de pc no mobile!!
        <div class="update-details">
 Olá, jogadores!
 
-Gostaríamos de compartilhar uma atualização importante sobre o lançamento de The World Its Challengers. Para garantir a melhor experiência possível e devido a ajustes no nosso cronograma de desenvolvimento, a data de lançamento foi adiada para 25 de julho de 2025.
+A JT Cloud X é a plataforma oficial de jogos na nuvem da JT Games, criada para revolucionar a forma como você acessa e joga seus títulos favoritos. Pensada para oferecer praticidade, velocidade e liberdade, a JT Cloud X permite que os usuários joguem diretamente do navegador ou aplicativo, sem a necessidade de instalar arquivos pesados ou depender de dispositivos potentes.
 
-Essa mudança permitirá que o jogo já chegue ao público com a versão 2.0 completa, incluindo todo o conteúdo das atualizações 1.6, 1.7, 1.8 e 1.9. Com isso, garantimos uma experiência mais polida e repleta de novidades desde o primeiro dia.
+Nosso objetivo é democratizar o acesso aos jogos, permitindo que jogadores de diferentes dispositivos — seja celular, tablet ou computador — possam se divertir de forma fluida, com carregamento rápido e jogabilidade estável.
 
-Sabemos que a espera pode ser difícil, mas esse tempo extra será essencial para entregar um jogo ainda mais refinado e divertido para vocês. Agradecemos imensamente o apoio e paciência de todos!
+A plataforma ainda está em fase inicial, com o site oficial já disponível trazendo informações, atualizações e detalhes sobre o futuro do serviço. Em breve, será possível acessar uma biblioteca completa de jogos, com suporte para salvamento na nuvem, login com conta JT Games, sincronização entre dispositivos e muito mais.
 
-Fiquem atentos para mais novidades. Nos vemos no lançamento!
-
+A JT Cloud X representa o próximo passo da JT Games em inovação e conectividade, oferecendo uma experiência de jogo mais acessível, moderna e conectada com o futuro.
 Equipe JT Games
       </div>
       </li>
@@ -558,24 +535,6 @@ Com isso, cada atualização trará não apenas melhorias e correções, mas tam
   <h2>Calendário de Atualizações</h2>
   <p>Estamos avançando para a versão 1.5, mas como nem todas as animações estarão completas, será realizada uma mini atualização 1.5.1 para implementar essas animações. As datas a seguir são estimativas e podem sofrer alterações:</p>
   <ul class="calendario-lista">
-    <li class="update-item">
-      <div class="update-header" onclick="toggleDetails(this)">
-        <strong>Versão 1.5 - 25/03/2025</strong>
-        <span class="seta">▼</span>
-      </div>
-      <div class="update-details">
-      A atualização 1.5 de The World Its Challengers, expande o mundo do jogo com novas áreas para explorar, repletas de desafios e segredos. Novos inimigos e chefes únicos chegam para testar suas habilidades, enquanto missões secundárias adicionam histórias cativantes e recompensas exclusivas. Além disso, melhorias no gameplay, ajustes de equilíbrio e correções garantem uma experiência ainda mais imersiva para os jogadores. Prepare-se para enfrentar aventuras inéditas e superar novos obstáculos!
-      </div>
-    </li>
-    <li class="update-item">
-      <div class="update-header" onclick="toggleDetails(this)">
-        <strong>Versão 1.5.1 - 01/04/2025</strong>
-        <span class="seta">▼</span>
-      </div>
-      <div class="update-details">
-        A atualização 1.5.1 de The World Its Challengers foca em corrigir bugs e melhorar a estabilidade geral do jogo, garantindo uma experiência mais fluida para os jogadores. Além disso, ela implementa animações pendentes, trazendo mais vida e detalhes ao mundo do jogo. Essa versão reforça o compromisso com a qualidade e a imersão, ajustando detalhes importantes para enriquecer sua jornada.
-      </div>
-    </li>
     <li class="update-item">
       <div class="update-header" onclick="toggleDetails(this)">
         <strong>New Dawn Update - 15/05/2025</strong>
